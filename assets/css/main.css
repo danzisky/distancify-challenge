@@ -1,0 +1,25 @@
+.dc-input{
+    padding:8px;
+    height:40px;
+    display:block;
+    border:1px solid #D5D3DE;
+    width:100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.dc-select{
+    padding:9px 0;
+    height:40px;
+    border:1px solid #D5D3DE;
+    width:100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    }
+.row {
+    display: flex;
+}
+.column {
+    flex: 1;
+    padding: 10px;
+}
+  
