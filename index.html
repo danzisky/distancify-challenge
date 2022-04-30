@@ -6,58 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body class="mulish">
     <!-- root div -->
-    <div class="row">
+    <div class="row responsive">
         <div class="responsive half">
             <img src="assets/images/MediaPlaceholder.png" alt="" srcset="" width="100%">
             <!-- picture div -->
         </div>
-        <div class="responsive half padding-half">
+        <div class="responsive half padding-half pd-top-60">
             <!-- other half div -->
-            <div>
+            <div class="header-text main-primary">
                 Welcome!
             </div>
-            <div>
+            <div class="header-text main-primary">
                 Create your account
             </div>
-            <div>
-                Already a member?
-                <div>
+            <div class="" style="padding-top: 12px;">
+                <span class="member-text">
+                    Already a member?
+                </span>
+                
+                <span class="signup">
                     Sign up
-                </div>
+                </span>
             </div>
             <div>
-                <form action="" method="post">
+                <form action="" method="post" class="text-standard form-text">
                     <div>
-                        <label for="phone_number">Phone number</label>
-                        <select name="" id="" class="dc-select"></select>
-                        <input type="text" class="dc-input" />
+                        <label for="phone_number" class="label">Phone number</label>
+                        <div class="row">
+                            <select name="" id="" class="dc-select col-s-3" style="margin-right: 12px;"></select>
+                            <input type="text" class="dc-input col-s-9" />
+                        </div>
+                        
                     </div>
                     <div>
-                        <label for="email">E-mail</label>
+                        <label for="email" class="label">E-mail</label>
                         <input type="email" class="dc-input" name="" id="">
                     </div>
                     <div>
-                        <label for="password">Choose password</label>
+                        <label for="password" class="label">Choose password</label>
                         <input type="password" class="dc-input" name="" id="" placeholder="It'll be our secret">
                     </div>
                     <div>
-                        <label for="confirm_password">Repeat password</label>
+                        <label for="confirm_password" class="label">Repeat password</label>
                         <input type="password" class="dc-input" name="" id="">
                     </div>
-                    <div>
-                        <input type="checkbox" class="dc-input" name="" id="">
-                        <div>I consent to the Privacy Policy & Terms of Service</div>
+                    <div class="row pd-top-15">
+                        <input type="checkbox" class="dc-check" name="" id="">
+                        <div>
+                            <span>
+                                I consent to the
+                            </span>
+                            <span class="underline">
+                                 Privacy Policy
+                            </span>
+                            <span>
+                                 &
+                            </span>
+                            <span class="underline">
+                                 Terms of Service
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" class="dc-input" name="" id="">
+                    <div class="row pd-top-15">
+                        <input type="checkbox" class="dc-check" name="" id="">
                         <div>I want to receive stories for trends, inspiration, interior design tips and to be the first to learn about new products & campaigns.</div>
                     </div>
-                    <div>
-                        <button type="submit">Sign up</button>
+                    <div class="" style="margin-top: 25px;">
+                        <button type="submit" class="btn">Sign up</button>
                     </div>                    
                 </form>
             </div>
