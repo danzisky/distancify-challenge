@@ -35,11 +35,15 @@
 .column {
     flex: 1;
     padding: 10px;
-    box-sizing: border-box;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
 }
 .half {
-    width: 49.999999%;
-    box-sizing: border-box;
+    width: 49.999999%
 }
 .mulish {
     font-family: 'Mulish';
@@ -52,7 +56,7 @@
     color: #333333;
 }
 .label {    
-    font-weight: 400;
+    font-weight: 500;
     font-size: 12px;
     line-height: 17px;
     /* or 142% */
@@ -110,11 +114,43 @@
     text-align: center;
     color: #FFFFFF;
 }
+.img {
+    width: 16px;
+    height: 122px
+
+}
 .pd-top-15 {
     padding-top: 15px;
 }
 .pd-top-60 {
     padding-top: 60px;
+}
+.block {
+    display: block;
+}
+.container {
+    padding: 8px;
+    background-color: #FFFFFF;
+}
+
+.center {
+    justify-content: center;
+}
+.res-center {
+    width: 100%;
+    justify-content: center;
+}
+@media (min-width:601px){
+    .res-center {
+        width: 87.5%;
+        justify-content: center;
+    }
+}
+@media (min-width:933px){
+    .res-center {
+        width: 75%;
+        justify-content: center;
+    }
 }
 /* For mobile phones: */
 .responsive[class*="col-"] {

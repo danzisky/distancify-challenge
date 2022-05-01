@@ -9,80 +9,196 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="mulish">
-    <!-- root div -->
-    <div class="row responsive">
-        <div class="responsive half">
-            <img src="assets/images/MediaPlaceholder.png" alt="" srcset="" width="100%">
-            <!-- picture div -->
-        </div>
-        <div class="responsive half padding-half pd-top-60">
-            <!-- other half div -->
-            <div class="header-text main-primary">
-                Welcome!
+<body class="mulish" style="margin:81px 0px 0px 0px;">
+    <script src="https://unpkg.com/vue@3"></script>    
+    <!-- root div -->    
+    <div id="root">
+        <h1>{{header}}</h1>
+        <div class="row responsive">            
+            <div class="responsive half">
+                <img :src="imageSrc" alt="" srcset="" style="width: 100%;"/>
+                <!-- picture div -->
             </div>
-            <div class="header-text main-primary">
-                Create your account
-            </div>
-            <div class="" style="padding-top: 12px;">
-                <span class="member-text">
-                    Already a member?
-                </span>
+            <div class="responsive half padding-half pd-top-60">
+                <!-- other half div -->
+                <div class="header-text main-primary">
+                    Welcome!
+                </div>
+                <div class="header-text main-primary">
+                    Create your account
+                </div>
+                <div class="" style="padding-top: 12px;">
+                    <span class="member-text">
+                        Already a member?
+                    </span>
+                    
+                    <span class="signup">
+                        Sign up
+                    </span>
+                </div>
+                <div class="" style="margin-top: 35px;">
+                    <signup-form/>
+                </div>
                 
-                <span class="signup">
-                    Sign up
-                </span>
             </div>
-            <div>
-                <form action="" method="post" class="text-standard form-text">
-                    <div>
-                        <label for="phone_number" class="label">Phone number</label>
+        </div> 
+    </div>
+    
+    <script>
+        const signUp = Vue.createApp({
+            data: function() {
+                return {
+                    header: "Vue is ready to party",
+                    imageSrc: "assets/images/MediaPlaceholder.png",                                       
+                }
+            },
+            methods: {
+                // submit: function() {
+                //     console.log(this.input)
+                // }
+            },
+            components: ['signup-form'],
+        })
+
+        signUp.component('signup-form', {
+            template: `
+                <form  @submit.prevent="submit" class="text-standard form-text">
+                    <div v-if="false">
+                        <label for="phone_number" class="label text-standard">Phone number</label>
                         <div class="row">
-                            <select name="" id="" class="dc-select col-s-3" style="margin-right: 12px;"></select>
-                            <input type="text" class="dc-input col-s-9" />
+                            <select name="" id="" class="dc-select col-s-4" v-model="input.country" style="margin-right:12px;text-overflow:clip">
+                                <option v-for="country in countries" value="country.dial_code" class="block container">
+                                    <div class="">
+                                        <p><img :src="country.src" class="img block"/></p> {{country.name}} ({{country.dial_code}})
+                                    </div>                                    
+                                </option>
+                            </select>
+                            <input type="text" class="dc-input col-s-8" v-model="input.phone"/>
                         </div>
-                        
                     </div>
                     <div>
-                        <label for="email" class="label">E-mail</label>
-                        <input type="email" class="dc-input" name="" id="">
+                        <label for="phone_number" class="label text-standard">Phone number</label>
+                        <div class="row">
+                            <div name="" id="" class="dc-input col-s-3" style="margin-right: 12px;">
+                                <div class="center" @click="toggleCountries">
+                                    <div class="row">
+                                        <div class="col-s-6">
+                                            <img :src="setCountry.src" class="img block" style="width:20px;height:15px"/>
+                                        </div>
+                                        <div class="col-s-6">
+                                            {{setCountry.dial_code}}
+                                        </div>
+                                    </div>                                 
+                                </div> 
+                            </div>
+                            <input type="text" class="dc-input col-s-9" v-model="input.phone"/>
+                        </div>
+                        <div v-if="showCountries "class="dc-input container" style="position:absolute;width:inherit;height:200px;overflow-y:scroll">
+                            <div v-for="country in countries" value="country.dial_code" class="container" :key="country.code" @click="setCode(country.code)" @click="toggleCountries">
+                                <div class="row">
+                                    <div class="col-s-2">
+                                        <img :src="country.src" class="img block" style="width:20px;height:15px"/>
+                                    </div>
+                                    <div class="col-s-10">
+                                        {{country.name}}({{country.dial_code}})
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <label for="password" class="label">Choose password</label>
-                        <input type="password" class="dc-input" name="" id="" placeholder="It'll be our secret">
+                        <label for="email" class="label text-standard">E-mail</label>
+                        <input type="email" class="dc-input" v-model="input.email" name="" id="">
                     </div>
                     <div>
-                        <label for="confirm_password" class="label">Repeat password</label>
-                        <input type="password" class="dc-input" name="" id="">
+                        <label for="password" class="label text-standard">Choose password</label>
+                        <input name="password" type="password" class="dc-input" v-model="input.password" name="" id="" placeholder="It'll be our secret" style="-webkit-text-security: square;"/>
+                    </div>
+                    <div>
+                        <label for="confirm_password" class="label text-standard">Repeat password</label>
+                        <input type="password" class="dc-input" v-model="input.confirm_password" name="" id="" style="-webkit-text-security: square;"/>
                     </div>
                     <div class="row pd-top-15">
-                        <input type="checkbox" class="dc-check" name="" id="">
+                        <input type="checkbox" class="dc-check" v-model="input.policy" name="" id=""/>
                         <div>
                             <span>
                                 I consent to the
                             </span>
                             <span class="underline">
-                                 Privacy Policy
+                                Privacy Policy
                             </span>
                             <span>
-                                 &
+                                &
                             </span>
                             <span class="underline">
-                                 Terms of Service
+                                Terms of Service
                             </span>
                         </div>
                     </div>
                     <div class="row pd-top-15">
-                        <input type="checkbox" class="dc-check" name="" id="">
+                        <input type="checkbox" class="dc-check" v-model="input.mailing" name="" id="">
                         <div>I want to receive stories for trends, inspiration, interior design tips and to be the first to learn about new products & campaigns.</div>
                     </div>
                     <div class="" style="margin-top: 25px;">
                         <button type="submit" class="btn">Sign up</button>
                     </div>                    
                 </form>
-            </div>
             
-        </div>
-    </div>
+            `,
+            data: function () {
+                return {
+                    countries: [],
+                    input: {                        
+                        country: '',
+                        phone: '',
+                        email: '',
+                        password: '',
+                        confirm_password: '',
+                        policy: false,
+                        mailing: true,
+                    },
+                    showCountries: false,
+                    setCountry: {
+                        code: '',
+                        dial_code: '',
+                        src: '',
+                    }
+                }
+            },
+            methods: {
+                submit: function() {
+                    console.log(this.input)
+                },
+                setCode: function(countryCode) {
+                    const selectedCountry = this.countries.find((country) => country.code==  countryCode);
+                    this.setCountry.dial_code = selectedCountry.dial_code;
+                    this.setCountry.src = selectedCountry.src;
+                    this.setCountry.code = selectedCountry.code;
+                },
+                toggleCountries: function() {
+                    this.showCountries = !this.showCountries;
+                }
+            },
+            async mounted() {
+                const res = await fetch('./assets/countries.json')
+                const countries = await res.json()
+
+                countries.forEach(country => {
+                    country.flagcode = country.code.toLowerCase();
+                    country.src = 'https://flagcdn.com/16x12/'+country.flagcode+'.png';
+                    country.style = 'width:100%;height:100%;background-image:url('+country.src+')';
+                });
+                
+                this.countries = countries;
+                console.log(countries);
+
+            },
+            components: ['form-input'],
+        })
+        signUp.component('form-input', {
+
+        })
+        signUp.mount('#root')
+    </script>
 </body>
 </html>
