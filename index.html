@@ -9,21 +9,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="mulish" style="margin:81px 0px 0px 0px;">
+<body class="mulish" style="margin:81px 0px 60px 0px;">
     <script src="https://unpkg.com/vue@3"></script>    
     <!-- root div -->    
     <div id="root">
         <div class="row responsive">            
-            <div class="responsive half">
+            <div class="responsive half sticky-s">
                 <img :src="imageSrc" alt="" srcset="" style="width: 100%;"/>
                 <!-- picture div -->
             </div>
-            <div class="responsive half padding-half pd-top-60">
+            <div class="responsive half padding-half pd-top-60 pd-bottom-20 detatch">
                 <!-- other half div -->
                 <div class="header-text main-primary">
-                    Welcome!
-                </div>
-                <div class="header-text main-primary">
+                    Welcome to Distancify!
+                    <br>                
                     Create your account
                 </div>
                 <div class="" style="padding-top: 12px;">
@@ -31,9 +30,9 @@
                         Already a member?
                     </span>
                     
-                    <span class="signup">
-                        Sign up
-                    </span>
+                    <a class="signup">
+                        Sign In
+                    </a>
                 </div>
                 <div class="" style="margin-top: 35px;">
                     <signup-form/>
@@ -78,7 +77,7 @@
                     <div>
                         <label for="phone_number" class="label text-standard">Phone number</label>
                         <div class="row">
-                            <div name="" id="" class="dc-input col-s-3 dropdown" @click="toggleCountries" style="margin-right: 12px;">
+                            <div name="" id="" class="dc-input col-s-4 dropdown" @click="toggleCountries" style="margin-right: 8px;">
                                 <div class="left-center" style="margin:auto">
                                     <div class="row ">
                                         <div class="inline">
@@ -96,10 +95,10 @@
                                                                      
                                 </div> 
                             </div>
-                            <input type="text" class="dc-input col-s-9" v-model="input.phone"/>
+                            <input type="text" class="dc-input col-s-8" v-model="input.phone"/>
                         </div>
                         <div v-if="showCountries "class="dc-input container" style="position:absolute;width:inherit;height:200px;overflow-y:scroll">
-                            <div v-for="country in countries" value="country.dial_code" class="container" :key="country.code" @click="setCode(country.code)" @click="toggleCountries">
+                            <div v-for="country in countries" value="country.dial_code" class="container hoverable-black" :key="country.code" @click="setCode(country.code)" @click="toggleCountries">
                                 <div class="row">
                                     <div class="col-s-2">
                                         <img :src="country.src" class="img block" style="width:20px;height:15px"/>
@@ -129,15 +128,15 @@
                             <span>
                                 I consent to the
                             </span>
-                            <span class="underline">
+                            <a class="underline">
                                 Privacy Policy
-                            </span>
+                            </a>
                             <span>
                                 &
                             </span>
-                            <span class="underline">
+                            <a class="underline">
                                 Terms of Service
-                            </span>
+                            </a>
                         </div>
                     </div>
                     <div class="row pd-top-15">
@@ -145,11 +144,11 @@
                         <div>I want to receive stories for trends, inspiration, interior design tips and to be the first to learn about new products & campaigns.</div>
                     </div>
                     <div class="" style="margin-top: 25px;">
-                        <button type="submit" class="btn">Sign up</button>
+                        <button type="submit" class="btn hoverable">Sign up</button>
                     </div>                    
                 </form>
-            
             `,
+            
             data: function () {
                 return {
                     countries: [],

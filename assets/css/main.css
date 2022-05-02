@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+.light-grey {
+    background-color: rgba(213, 211, 222, 0.9);
+}
 .dc-input{
     padding:8px;
     height:40px;
@@ -114,6 +117,16 @@
     text-align: center;
     color: #FFFFFF;
 }
+.hoverable-black:hover {
+    
+    background: #333333;
+    color: #D5D3DE;
+}
+.hoverable:hover {
+    
+    background: #D5D3DE;
+    color: #333333;
+}
 .img {
     width: 16px;
     height: 122px
@@ -124,6 +137,9 @@
 }
 .pd-top-60 {
     padding-top: 60px;
+}
+.pd-bottom-20 {
+    padding-bottom: 20px;
 }
 .block {
     display: block;
@@ -275,15 +291,38 @@ display: inline-block;
     .responsive {
         width: 100%;
         display:block;
-        overflow-x:auto
+        overflow-x:auto;
+    }
+    .detatch {
+        width: 90%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display:block;
+        margin-top: 80%;
+        margin-bottom: 40px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 30px;
+        overflow-x:auto;
+        overflow-y:scroll;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 2px;
+        border:0.3px solid #D5D3DE;
+        border-width: 2px;
+    }
+    .sticky-s {
+        position: sticky;
+        top: 0px;
     }
     .row_, .responsive {
         display: flex;
         flex-direction: column;
     }
     .padding-half {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 }
 @media (min-width:601px){
