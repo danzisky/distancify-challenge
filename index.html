@@ -21,9 +21,9 @@
             <div class="responsive half padding-half pd-top-60 pd-bottom-20 detatch">
                 <!-- other half div -->
                 <div class="header-text main-primary">
-                    Welcome to Distancify!
+                    Welcome to Distancify.
                     <br>                
-                    Create your account
+                    Create your account.
                 </div>
                 <div class="" style="padding-top: 12px;">
                     <span class="member-text">
@@ -49,11 +49,6 @@
                     header: "Vue js for distancify",
                     imageSrc: "assets/images/MediaPlaceholder.png",                                       
                 }
-            },
-            methods: {
-                // submit: function() {
-                //     console.log(this.input)
-                // }
             },
             components: ['signup-form'],
         })
@@ -147,8 +142,8 @@
                         <button type="submit" class="btn hoverable">Sign up</button>
                     </div>                    
                 </form>
-            `,
             
+            `,
             data: function () {
                 return {
                     countries: [],
@@ -184,6 +179,7 @@
                 },
                 toggleCountries: function() {
                     this.showCountries = !this.showCountries;
+                    //to add the valid class to show the green mark
                 },
                 toggleValidPasswords: function() {
                     
@@ -194,8 +190,7 @@
                     } else {
                         this.validPasswords = (this.input.password === this.input.confirm_password) ? true : false;
                     }
-                    
-                                        
+                    //to add the valid class to show the green mark                  
                 },
                 toggleValidEmail: function() {
                     this.validEmail = (this.input.email == null || this.input.email == '') ?  false :  true;
@@ -212,9 +207,7 @@
                 });               
                 
                 this.countries = countries;
-                this.setCode('SE');
-                // console.log(countries);
-
+                this.setCode('SE'); //sets default country code to sweden's
             },
             components: ['form-input'],
         })
